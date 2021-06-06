@@ -1,5 +1,9 @@
 """
-The :module:`Chapter02.image_reader` module will contain the class I'll need to read images using OpenCV 4.
+The :currentmodule:`Chapter02.image_reader` module will contain the class I'll need to read images using OpenCV 4.
+
+The class in question is :class:`ImageViewer`.
+Additionally, there is a test image path (:file:`logo.png`)
+
 """
 import cv2
 
@@ -41,17 +45,22 @@ class ImageViewer:
 
     def load_rgb_image(self, file_path):
         """
-        :method:`load_rgb_image` Load an rgb_image with OpenCV4 into RGB color space.
+        load_rgb_image(file_path)
+
+        Loads the image into RGB color space.
+
+        Normally, :module:`cv2` loads images into BGR color space. This method corrects that so it will be easy to
+        display images in native OS windows.
 
         Parameters
         ----------
-        file_path: str
-            The path to the rgb_image I want to load.
+        file_path : str
+            The path to the image file I want to load.
 
         Returns
         -------
-        rgb_image: numpy.ndarray
-            The OpenCV4 rgb_image I want.
+        numpy.ndarray
+            The image I want to load in.
         """
         self.image_path = file_path
         color_flag = self.cv2.COLOR_BGR2RGB
@@ -60,7 +69,7 @@ class ImageViewer:
 
     def show(self, rgb_image, image_title = None):
         """
-        Show the image I loaded in, and continue to display it until a key is pressed.
+        show will display the image I loaded in, and continue to display it until a key is pressed.
 
         Parameters
         ----------
@@ -77,5 +86,6 @@ class ImageViewer:
 if __name__ == '__main__':
     viewer = ImageViewer()
     image = viewer.load_rgb_image(image_file_path)
-    viewer.show(image)
+    # viewer.show(image)
     print(type(cv2))
+    print(type(image))
