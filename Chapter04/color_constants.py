@@ -1,5 +1,6 @@
 """
 The :mod:`color_constants` module contains tuples for the most commonly used colors (in BGR color space).
+It also contains a dictionary that lists these colors as :obj:`str` : :obj:`tuple(int, int, int)`.
 """
 
 from numpy.random import randint
@@ -67,4 +68,29 @@ CYAN = (VALUE_MAX, VALUE_MAX, VALUE_MIN)
 tuple[int, int, int]: The color magenta in BGR color space.
 
 This will be (255, 255, 0).
+"""
+WHITE = (VALUE_MAX, VALUE_MAX, VALUE_MAX)
+"""
+tuple[int, int, int]: The color white in BGR color space.
+
+This will be (255, 255, 255)
+"""
+BLACK = (VALUE_MIN, VALUE_MIN, VALUE_MIN)
+"""
+tuple[int, int, int]: The color black in BGR color space.
+
+This will be (0, 0, 0)
+"""
+COLOR_DICTIONARY = {
+        "blue": BLUE,
+        "green": GREEN,
+        "red": RED,
+        "yellow": YELLOW,
+        "cyan": CYAN,
+        "magenta": MAGENTA,
+        "white": WHITE,
+        "black": BLACK
+}
+"""
+dict[str: (int, int, int)]: A dictionary of the most common colors in BGR color space.
 """
